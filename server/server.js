@@ -10,9 +10,10 @@ app.use(function(req, res, next){
 
 app.use(express.static(__dirname + "/../client"));
 
-app.get("*.less", function(req, res) {
-  var path = __dirname + req.url;
+app.get("*.css", function(req, res) {
+  var path = __dirname + "/../client" + req.url.slice(0,-3)+"less";
   fs.readFile(path, "utf8", function(err, data) {
+    console.log(data);
     if (err) throw err;
     less.render(data, function(err, css) {
       if (err) throw err;
