@@ -1,0 +1,14 @@
+{
+  "name": "dormitory-book-finder",
+  "version": "0.0.1",
+  "description": "An app to help students find if they need to buy a book",
+  "author": "Conlin Durbin <conlin@frosty.co>",
+  "contributors": [{
+    "name": "Jeremy Meyer",
+    "email": "jeremy@frosty.co"
+  }],
+  "dependencies": {
+    "express": "3.x",
+    "mongoose": "3.x"
+  }
+}
