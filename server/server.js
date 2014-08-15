@@ -3,7 +3,12 @@ var express = require("express");
 var app = express();
 var less = require("less");
 
-app.use(express.static(__dirname + "../client"));
+app.use(function(req, res, next){
+  console.log('%s %s', req.method, req.url);
+  next();
+});
+
+app.use(express.static(__dirname + "/../client"));
 
 app.get("*.less", function(req, res) {
   var path = __dirname + req.url;
