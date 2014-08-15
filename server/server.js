@@ -1,8 +1,9 @@
 var fs = require("fs");
-var app = require('express')();
+var express = require("express");
+var app = express();
 var less = require("less");
 
-app.use(express.static(__dirname + '../client'));
+app.use(express.static(__dirname + "../client"));
 
 app.get("*.less", function(req, res) {
   var path = __dirname + req.url;
@@ -16,7 +17,6 @@ app.get("*.less", function(req, res) {
   });
 });
 
-
 var server = app.listen(3000, function() {
-  console.log('Listening on port %d', server.address().port);
+  console.log("Listening on port %d", server.address().port);
 });
