@@ -2,9 +2,7 @@ var fs = require("fs");
 var app = require('express')();
 var less = require("less");
 
-app.get('/', function(req, res){
-  res.render('/home');
-});
+app.use(express.static(__dirname + '../client'));
 
 app.get("*.less", function(req, res) {
   var path = __dirname + req.url;
