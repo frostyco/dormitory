@@ -14,7 +14,10 @@ module.exports = function(app) {
 
   // show
   app.get("/api/books/:books_id", function(req, res) {
-    res.json({});
+    Book.find({ _id: req.params.book_id }, function (err, book) {
+      if (err) { res.send(err); }
+      res.json(book);
+    });
   });
 
   // create
@@ -62,14 +65,17 @@ module.exports = function(app) {
 
   // show
   app.get("/api/classes/:class_id", function(req, res) {
-    res.json({});
+    Class.find({ _id: req.params.class_id }, function (err, class) {
+      if (err) { res.send(err); }
+      res.json(class);
+    });
   });
 
   // create
   app.post("/api/classes", function(req, res) {
     console.log(req.body);
 
-    class.create({
+    Class.create({
       school : req.body.school,
       title : req.body.title,
       yes : req.body.yes,
@@ -110,8 +116,11 @@ module.exports = function(app) {
   });
 
   // show
-  app.get("/api/schools/:schools_id", function(req, res) {
-    res.json({});
+  app.get("/api/schools/:school_id", function(req, res) {
+    School.find({ _id: req.params.school_id }, function (err, school) {
+      if (err) { res.send(err); }
+      res.json(school);
+    });
   });
 
   // create
