@@ -6,7 +6,7 @@ var less = require("less");
 var amazonBase = "http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=";
 
 // routes
-require('./app/routes.js')(app);
+require('./routes.js')(app);
 
 app.use(function(req, res, next){
   console.log('%s %s', req.method, req.url);

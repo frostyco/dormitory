@@ -65,9 +65,9 @@ module.exports = function(app) {
 
   // show
   app.get("/api/classes/:class_id", function(req, res) {
-    Class.find({ _id: req.params.class_id }, function (err, class) {
+    Class.find({ _id: req.params.class_id }, function (err, klass) {
       if (err) { res.send(err); }
-      res.json(class);
+      res.json(klass);
     });
   });
 
@@ -80,7 +80,7 @@ module.exports = function(app) {
       title : req.body.title,
       yes : req.body.yes,
       no : req.body.no,
-    }, function(err, class) {
+    }, function(err, klass) {
       if (err) { res.send(err); }
 
       // get and return all the classes after you create another
@@ -95,7 +95,7 @@ module.exports = function(app) {
   app.delete('/api/classes/:class_id', function(req, res) {
     Class.remove({
       _id : req.params.class_id
-    }, function(err, class) {
+    }, function(err, klass) {
       if (err) { res.send(err); }
 
       // get and return all the classes after you create another
